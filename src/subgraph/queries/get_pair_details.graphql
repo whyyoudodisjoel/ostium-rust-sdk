@@ -1,0 +1,47 @@
+query GetPairDetails($pair_id: ID!) {
+  pair(id: $pair_id) {
+    id
+    from
+    to
+    overnightMaxLeverage
+    longOI
+    shortOI
+    maxOI
+    makerFeeP
+    takerFeeP
+    makerMaxLeverage
+    curFundingLong
+    curFundingShort
+    curRollover
+    totalOpenTrades
+    totalOpenLimitOrders
+    accRollover
+    lastRolloverBlock
+    rolloverFeePerBlock
+    accFundingLong
+    accFundingShort
+    lastFundingBlock
+    maxFundingFeePerBlock
+    lastFundingRate
+    hillInflectionPoint
+    hillPosScale
+    hillNegScale
+    springFactor
+    sFactorUpScaleP
+    sFactorDownScaleP
+    lastTradePrice
+    maxLeverage
+    group {
+      id
+      name
+      minLeverage
+      maxLeverage
+      maxCollateralP
+      longCollateral
+      shortCollateral
+    }
+    fee {
+      minLevPos
+    }
+  }
+}

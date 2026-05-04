@@ -1,0 +1,43 @@
+query GetOrderById($order_id: ID!) {
+  orders(where: { id: $order_id }) {
+    id
+    trader
+    pair {
+      id
+      from
+      to
+      feed
+    }
+    tradeID
+    limitID
+    orderType
+    orderAction
+    price
+    priceAfterImpact
+    priceImpactP
+    collateral
+    notional
+    tradeNotional
+    profitPercent
+    totalProfitPercent
+    amountSentToTrader
+    isBuy
+    initiatedAt
+    executedAt
+    initiatedTx
+    executedTx
+    initiatedBlock
+    executedBlock
+    leverage
+    isPending
+    isCancelled
+    cancelReason
+    devFee
+    vaultFee
+    oracleFee
+    liquidationFee
+    fundingFee
+    rolloverFee
+    closePercent
+  }
+}

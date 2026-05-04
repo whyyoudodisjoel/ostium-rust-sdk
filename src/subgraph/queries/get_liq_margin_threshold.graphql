@@ -1,0 +1,5 @@
+query GetLiqMarginThreshold {
+  metaDatas {
+    liqMarginThresholdP
+  }
+}

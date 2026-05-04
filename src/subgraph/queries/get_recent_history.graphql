@@ -1,0 +1,41 @@
+query GetRecentHistory($trader: Bytes, $last_n_orders: Int) {
+  orders(
+    where: { trader: $trader, isPending: false }
+    first: $last_n_orders
+    orderBy: executedAt
+    orderDirection: desc
+  ) {
+    id
+    isBuy
+    trader
+    notional
+    tradeNotional
+    collateral
+    leverage
+    orderType
+    orderAction
+    price
+    initiatedAt
+    executedAt
+    executedTx
+    isCancelled
+    cancelReason
+    profitPercent
+    totalProfitPercent
+    isPending
+    amountSentToTrader
+    rolloverFee
+    fundingFee
+    pair {
+      id
+      from
+      to
+      feed
+      longOI
+      shortOI
+      group {
+        name
+      }
+    }
+  }
+}

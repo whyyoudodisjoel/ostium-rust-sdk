@@ -1,0 +1,36 @@
+query GetOrders($trader: Bytes!) {
+  limits(
+    where: { trader: $trader, isActive: true }
+    orderBy: initiatedAt
+    orderDirection: asc
+  ) {
+    collateral
+    leverage
+    isBuy
+    isActive
+    id
+    openPrice
+    takeProfitPrice
+    stopLossPrice
+    trader
+    initiatedAt
+    limitType
+    pair {
+      id
+      feed
+      from
+      to
+      accRollover
+      lastRolloverBlock
+      rolloverFeePerBlock
+      accFundingLong
+      spreadP
+      accFundingShort
+      longOI
+      shortOI
+      lastFundingBlock
+      maxFundingFeePerBlock
+      lastFundingRate
+    }
+  }
+}

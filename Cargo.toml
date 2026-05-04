@@ -1,0 +1,29 @@
+[package]
+name = "isocline-ostium-rust-sdk"
+version = "0.1.0"
+edition = "2024"
+description = "Rust SDK for the Ostium decentralized trading platform on Arbitrum — open/close trades, subgraph reads, price feed, funding-rate formulae."
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/whyyoudodisjoel/isocline-vault-factory"
+homepage = "https://github.com/whyyoudodisjoel/isocline-vault-factory"
+keywords = ["ostium", "arbitrum", "perps", "trading", "defi"]
+categories = ["api-bindings", "finance"]
+readme = "README.md"
+publish = true
+
+[dependencies]
+# Aligned to workspace alloy = "1" so the c-kzg native linker isn't requested
+# from two different alloy-consensus majors at once. The handful of v2-only
+# APIs this SDK touched (U192 alias, providers, signer-local) are all
+# available in 1.x as well.
+alloy = { version = "1", features = ["full", "signer-local"] }
+graphql_client = { version = "0.14", default-features = false, features = ["graphql_query_derive"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+rust_decimal = { version = "1.36", features = ["maths", "serde-with-str"] }
+rust_decimal_macros = "1.36"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "2.0"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "time"] }
+tracing = "0.1"
+url = "2.5.8"

@@ -1,0 +1,30 @@
+query GetTradeById($trade_id: ID!) {
+  trades(where: { id: $trade_id }) {
+    id
+    trader
+    pair {
+      id
+      from
+      to
+      feed
+    }
+    index
+    tradeID
+    tradeType
+    openPrice
+    closePrice
+    takeProfitPrice
+    stopLossPrice
+    collateral
+    notional
+    tradeNotional
+    highestLeverage
+    leverage
+    isBuy
+    isOpen
+    closeInitiated
+    funding
+    rollover
+    timestamp
+  }
+}
